@@ -36,9 +36,7 @@ type CoinProps = {
     volume: number
     image: string
     price_change_percentage_24h: number
-    map?: function
-    
-    
+    map?: function   
     }
 
     type KeypressProps = {

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Coin from "./Coin";
 
 export default function Home() {
-  const [coins, setCoins] = useState<DataResponse>({} as DataResponse);
+  const [coins, setCoins] = useState<DataResponse[]>();
   const [search, setSearch] = useState("");
   useEffect(() => {
     axios
@@ -27,8 +27,8 @@ export default function Home() {
     setSearch(e.target.value);
   };
 
-  const filteredCoins = (Object).values(coins).filter((key) =>
-  key?.toString().toLowerCase().includes(search.toLowerCase())
+  const filteredCoins = coins?.filter((coin) =>
+  coin?.name.toString().toLowerCase().includes(search.toLowerCase())
 );
 console.log(filteredCoins)
 console.log(typeof filteredCoins)
@@ -52,16 +52,16 @@ console.log(typeof filteredCoins)
       </div>
 
       <div className="coinsContainer">
-        {filteredCoins.map(coin => (
+        {filteredCoins?.map(coin => (
           <Coin
-            key={coin.id}
-            name={coin.name}
-            current_price={coin.current_price}
-            symbol={coin.symbol}
-            market_cap={coin.market_cap}
-            volume={coin.total_volume}
-            image={coin.image}
-            price_change_percentage_24h={coins.price_change_percentage_24h}
+            key={coin?.id}
+            name={coin?.name}
+            current_price={coin?.current_price}
+            symbol={coin?.symbol}
+            market_cap={coin?.market_cap}
+            volume={coin?.total_volume}
+            image={coin?.image}
+            price_change_percentage_24h={coin?.price_change_percentage_24h}
           />
         ))}
       </div>
