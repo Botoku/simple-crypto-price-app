@@ -50,7 +50,18 @@ a {
   color: #e2e2e2;
 }
 
+.coinsContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
+
+}
+
+.headerTitle{
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 520px) {
   .header {
